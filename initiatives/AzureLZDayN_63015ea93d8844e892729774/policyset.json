@@ -1,0 +1,200 @@
+{
+ "properties": {
+  "displayName": "AzureLZDayN",
+  "policyType": "Custom",
+  "description": "",
+  "metadata": {
+   "category": "TEST",
+   "version": "1.0",
+   "createdBy": "0ad8fa10-3768-4a80-b19c-1a6760a964c8",
+   "createdOn": "2021-05-20T17:31:58.4528718Z",
+   "updatedBy": "0ad8fa10-3768-4a80-b19c-1a6760a964c8",
+   "updatedOn": "2021-05-20T19:16:38.5738897Z",
+   "parameterScopes": {
+    "logAnalytics": "/subscriptions/cee7e518-a5b2-4a56-8454-fdd35563c70d"
+   }
+  },
+  "parameters": {
+   "LogAnalyticsWorkspaceId": {
+    "type": "string",
+    "metadata": {
+     "displayName": "LogAnalyticsWorkspaceId",
+     "description": null
+    },
+    "defaultValue": "Default Value"
+   },
+   "AllowedServicePortsList": {
+    "type": "array",
+    "metadata": {
+     "displayName": "Allowed Service Ports List",
+     "description": null
+    },
+    "defaultValue": []
+   },
+   "AllowedContainerPortsList": {
+    "type": "array",
+    "metadata": {
+     "displayName": "Allowed container ports list",
+     "description": null
+    },
+    "defaultValue": []
+   },
+   "Forbiddensysctls": {
+    "type": "array",
+    "metadata": {
+     "displayName": "Forbidden sysctls",
+     "description": null
+    },
+    "defaultValue": []
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Azure Kubernetes Service Private Clusters should be enabled_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/040732e8-d947-40b8-95d6-854c95024bf8",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Policy Add-on for Kubernetes service (AKS) should be installed and enabled on your clusters_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a15ec92-a229-4763-bb14-0ea34a568f8d",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Temp disks and cache for agent node pools in Azure Kubernetes Service clusters should be encrypted a_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/41425d9f-d1a5-499a-9932-f8ed8453932c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy - Configure diagnostic settings for Azure Kubernetes Service to Log Analytics workspace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c66c325-74c8-42fd-a286-a74b0e2939d8",
+    "parameters": {
+     "logAnalytics": {
+      "value": "[parameters('LogAnalyticsWorkspaceId')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deploy Azure Policy Add-on to Azure Kubernetes Service clusters_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a8eff44f-8c92-45c3-a3fb-9880802d67a7",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster pod hostPath volumes should only use allowed host paths_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/098fc59e-46c7-4d99-9b16-64990e543d75",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster pods should only use allowed volume types_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/16697877-1118-4fb1-9b65-9898ec2509ec",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes clusters should be accessible only over HTTPS_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes clusters should not allow container privilege escalation_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c6e92c9-99f0-4e55-9cf2-0c234dc48f99",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster services should listen only on allowed ports_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/233a2a17-77ca-4fb1-9b6b-69223d272a44",
+    "parameters": {
+     "allowedServicePortsList": {
+      "value": "[parameters('AllowedServicePortsList')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should only listen on allowed ports_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/440b515e-a580-421e-abeb-b159a61ddcbc",
+    "parameters": {
+     "allowedContainerPortsList": {
+      "value": "[parameters('AllowedContainerPortsList')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should not share host process ID or host IPC namespace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should only use allowed AppArmor profiles_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/511f5417-5d12-434d-ab2e-816901e72a5e",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should not use forbidden sysctl interfaces_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/56d0a13f-712f-466b-8416-56fb354fb823",
+    "parameters": {
+     "forbiddenSysctls": {
+      "value": "[parameters('Forbiddensysctls')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster pods should only use approved host network and port range_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82985f06-dc18-4a48-bc1c-b9f4f0098cfe",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster should not allow privileged containers_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/95edb821-ddaf-4404-9732-666045e056b4",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should only use allowed seccomp profiles_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/975ce327-682c-4f2e-aa46-b9598289b86c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Kubernetes clusters should not use the default namespace_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9f061a12-e40d-4183-a00e-171812443373",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Kubernetes clusters should not use specific security capabilities_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a27c700f-8a22-44ec-961c-41625264370b",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should only use allowed capabilities_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c26596ff-4d70-4e6a-9a30-c2506bd2f80c",
+    "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "[Preview]: Kubernetes clusters should not grant CAP_SYS_ADMIN security capabilities_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d2e7ea85-6b44-4317-a0be-1b951587f626",
+    "parameters": {},
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/subscriptions/cee7e518-a5b2-4a56-8454-fdd35563c70d/providers/Microsoft.Authorization/policySetDefinitions/63015ea93d8844e892729774",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "63015ea93d8844e892729774"
+}
