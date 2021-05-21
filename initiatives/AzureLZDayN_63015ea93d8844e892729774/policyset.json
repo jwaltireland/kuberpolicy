@@ -9,7 +9,7 @@
    "createdBy": "0ad8fa10-3768-4a80-b19c-1a6760a964c8",
    "createdOn": "2021-05-20T17:31:58.4528718Z",
    "updatedBy": "0ad8fa10-3768-4a80-b19c-1a6760a964c8",
-   "updatedOn": "2021-05-20T19:53:15.2388188Z",
+   "updatedOn": "2021-05-21T13:19:11.072558Z",
    "parameterScopes": {
     "logAnalytics": "/subscriptions/cee7e518-a5b2-4a56-8454-fdd35563c70d"
    }
@@ -62,6 +62,22 @@
      "description": null
     },
     "defaultValue": "\"\""
+   },
+   "AllowedContainerImagesRegex": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Allowed container images regex",
+     "description": null
+    },
+    "defaultValue": "[]"
+   },
+   "ListOfLabels": {
+    "type": "array",
+    "metadata": {
+     "displayName": "List of labels",
+     "description": null
+    },
+    "defaultValue": []
    }
   },
   "policyDefinitions": [
@@ -229,6 +245,39 @@
     "policyDefinitionReferenceId": "Kubernetes cluster containers should only use allowed ProcMountType_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/f85eb0dd-92ee-40e9-8a76-db25a507d6d3",
     "parameters": {},
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers should only use allowed images_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/febd0533-8e55-448f-b837-bd0e06f16469",
+    "parameters": {
+     "allowedContainerImagesRegex": {
+      "value": "[parameters('AllowedContainerImagesRegex')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster pods should use specified labels_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/46592696-4c7b-4bf3-9e45-6c2763bdc0a6",
+    "parameters": {
+     "labelsList": {
+      "value": "[parameters('ListOfLabels')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e345eecc-fa47-480f-9e88-67dcc122b164",
+    "parameters": {
+     "cpuLimit": {
+      "value": "[parameters('cpuLimit')]"
+     },
+     "memoryLimit": {
+      "value": "[parameters('memoryLimit')]"
+     }
+    },
     "groupNames": []
    }
   ],
